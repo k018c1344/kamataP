@@ -36,6 +36,19 @@ def send():
     conn.close()
     return redirect('/')
 
+@app.route('/delete',methods=['POST'])
+def delete():
+    del_list=request.form.getlist('del_list')
+    conn=db.connect(**db_param)
+    cur=conn.cursor()
+    stmt='DELETE FROM books WHERE id=%s'
+    for id in del_list:
+        cur.execute(stmt,(id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    return redirect('/')
+
 if __name__=='__main__':
     app.debug = True
     app.run()
