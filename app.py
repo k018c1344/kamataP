@@ -29,6 +29,32 @@ def index():
     conn.close()
     return render_template('index.html',list=rows)
 
+@app.route('/send',methods=['POST'])
+def send():
+    print(request.files)
+    title=request.form.get('title')
+    price=request.form.get('price')
+    image=request.files['img_file']
+    if title=="" or price=="" or image=="":
+        return redirect('/')
+
+    if image and allowed_file(image.filename):
+        image.save('static/uploads/'+image.filename)
+    conn=db.connect(**db_param)
+    cur=conn.cursor()
+
+    stmt='SELECT * FROM list WHERE title=%s'
+    cur.execute(stmt,(title,))
+    rows=cur.fetchall()
+    if len(rows)==0:
+        cur.execute('INSERT INTO list(title,price,image) VALUES(%s,%s,%s)',(title,int(price),image.filename))
+    else:
+        cur.execute('UPDATE list SET price=%s, image=$s WHERE title=%s',(int(price),image.filename,title))
+    conn.commit()
+    cur.close()
+    conn.close()
+    return redirect('/')
+
 if __name__=='__main__':
     app.debug = True
     app.run()
