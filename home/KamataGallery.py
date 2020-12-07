@@ -50,7 +50,7 @@ def new_send():
         return redirect('/new')
     if request.form.get('user_name'):
         session['user_name']=request.form.get('user_name')
-    FilePath=app.config['path']+name
+    FilePath=path+name
     reference=os.path.exists(FilePath)
     if reference==False:
         os.mkdir(FilePath)
