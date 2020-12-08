@@ -17,10 +17,22 @@ app = Flask(__name__)
 path='./files/'
 app.config['SECRET_KEY']=os.urandom(24)
 
+#----------------------------   画面表示
+
 @app.route('/')
 #初期画面
 def index():
     return render_template('index.html')
+
+@app.route('/photo')
+
+def photo():
+    return render_template('photo.html')
+
+@app.route('/enter')
+
+def enter():
+    return render_template('enter.html')
 
 @app.route('/login')
 #ログイン画面遷移

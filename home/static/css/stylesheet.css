@@ -4,64 +4,135 @@ body {
   color:white;
 }
 
+header {
+  height:80px;
+
+}
+
 header h3 {
   text-align: center;
 }
 
+.header-logo {
+  width:78px;
+  height:77px;
+  margin:0 auto;
+}
 
-.contents {
-display:inline-block;
+.header-logo h3 {
+  display:inline-block;
+  text-align: center;
+  padding-bottom:10px;
+}
+
+a:link {
+   color: #fff;
+}
+a:visited {
+  color: #fff;
+}
+a:hover {
+  color: #ffff;
+}
+a:active {
+  color: #ffff;
+}
+a {
+  text-decoration: none;
+}
+
+.pagetomypage {
+  display:inline-block;
+  width:80px;
+  position: absolute;
+  top:17px;
+  right:50px;
+}
+
+
+  .button {
+    display       : inline-block;
+    font-size     : 13pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 2px 0px;   /* 余白       */
+    background    : #000000;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    border:none;
+    margin-left: 10px;
+
+
+  }
+  .button:hover {
+    color         : #000000;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+    border:none;
+  }
+
+.contents h5{
+  font-size:20px;
 }
 
 .content1 {
-  display: inline-block;
+  display:inline-block;
   margin-bottom:20px;
+  margin-left:30px;
+  width:50%;
 }
 
 .content2 {
-  margin-bottom:20px;
   display:inline-block;
-  padding:0;
-  border: solid;
+  margin-bottom:20px;
+  width:45%;
+  margin-top:30px;
+
 
 }
 
 .content3 {
+  display:inline-block;
   margin-bottom:20px;
-  border: solid;
+  margin-left: 60px;
+  width:45%;
 }
 
 .content4 {
+  display:inline-block;
   margin-bottom:20px;
-  border: solid;
+  width:45%;
 }
 
 .content5 {
+  display:inline-block;
   margin-bottom:20px;
+  margin-left: 5px;
+  width:99%;
 }
 
 .content1 img {
-  width:40%;
-  height:40%;
+  width:100%;
+  height:100%;
 
 }
 
 .content2 img {
-  width:40%;
-  height:40%;
+  width:100%;
+  height:100%;
 }
 
 .content3 img {
-  width:40%;
-  height:40%;
+  width:100%;
+  height:100%;
 }
 
 .content4 img {
-  width:40%;
-  height:40%;
+  width:100%;
+  height:100%;
 }
 
 .content5 img {
-  width:40%;
-  height:40%;
+  width:100%;
+  height:100%;
 }
