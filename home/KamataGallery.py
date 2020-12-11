@@ -9,7 +9,7 @@ db_param={
     'user':'mysql',
     'host':'localhost',
     'password':'',
-    'database':'kamatagallery'
+    'database':'SampleDB'
 }
 
 app = Flask(__name__)
@@ -20,17 +20,17 @@ app.config['SECRET_KEY']=os.urandom(24)
 #----------------------------   画面表示
 
 @app.route('/')
-#初期画面
+#初期画面遷移
 def index():
     return render_template('index.html')
 
 @app.route('/photo')
-
+#photo画面遷移
 def photo():
     return render_template('photo.html')
 
 @app.route('/enter')
-
+#enter画面遷移
 def enter():
     return render_template('enter.html')
 
@@ -50,9 +50,20 @@ def login_send():
     pw=request.form.get('password')
     if name=="" or pw=="":
         return redirect('/login')
-    if request.form.get('user_name'):
-        session['user_name']=request.form.get('user_name')
-    return render_template('mypage.html',name=name)
+    conn=db.connect(**db_param)
+    cur=conn.cursor()
+    stmt='SELECT * FROM sample1 WHERE name=%s AND password=%s'
+    cur.execute(stmt,(name,pw))
+    rows=cur.fetchall()
+    conn.commit()
+    cur.close()
+    conn.close()
+    if len(rows)==0:
+        return redirect('/login')
+    else:
+        if request.form.get('user_name'):
+            session['user_name']=request.form.get('user_name')
+        return render_template('mypage.html',name=session['user_name'])
 
 @app.route('/new')
 #新規登録画面遷移
@@ -68,11 +79,23 @@ def new_send():
         return redirect('/new')
     if request.form.get('user_name'):
         session['user_name']=request.form.get('user_name')
-    FilePath=path+name
-    reference=os.path.exists(FilePath)
-    if reference==False:
-        os.mkdir(FilePath)
-    return render_template('mypage.html',name=name)
+    conn=db.connect(**db_param)
+    cur=conn.cursor()
+    stmt='SELECT * FROM sample1 WHERE name=%s'
+    cur.execute(stmt,(name,))
+    rows=cur.fetchall()
+    if len(rows)==0:
+        cur.execute('INSERT ignore INTO sample1(name,password) VALUES(%s,%s)',(name,pw))
+        FilePath=path+name
+        reference=os.path.exists(FilePath)
+        if reference==False:
+                os.mkdir(FilePath)
+        conn.commit()
+        cur.close()
+        conn.close()
+        return render_template('mypage.html',name=name)
+    else:
+        return redirect('/new')
 
 @app.route('/logout')
 #ログアウト処理
@@ -81,10 +104,13 @@ def logout():
     return redirect('/')
 
 @app.route('/send',methods=['POST'])
-#画像送信処理
+#ファイル送信処理
 def upload():
     if 'user_name' in session:
         name=str(session['user_name'])
+    else:
+        return redirect('/login')
+
     file=request.files['file']
     FilePath=path+name
     file.save(FilePath+'/'+file.filename)
