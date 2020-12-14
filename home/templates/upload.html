@@ -1,0 +1,12 @@
+<h1>{{name}}のマイページ</h1>
+
+<body>
+  <form action="/send" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" id="file">
+    <input type="submit" value="送信">
+  </form>
+</body>
+
+<h3>{{result}}</h3>
+
+<a href="/logout">ログアウト</a>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Enter</title>
+<link rel="stylesheet" media="all" href="../css/style.css"/>
+<link rel="stylesheet" media="all" href="../css/dist/art.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script src="../js/art.js"></script>
+<script src="../js/script.js"></script>
+</head>
+
+<body id="top">
+    <header id="header">
+        <div id="headerWrap">
+            <h1>KAMATA<br>Gallery</h1>
+            <nav id="mainnav">
+                <p id="menuWrap"><a id="menu"><span id="menuButton"></span></a></p>
+                <div class="panel">
+                    <ul>
+                        <li><a href="../index.html">TOP</a></li>
+                        <li><a href="./enter.html">Enter</a></li>
+                        <li><a href="#fas">Fashion</a></li>
+                        <li><a href="#foo">Food</a></li>
+                        <li><a href="#mus">Music</a></li>
+                        <li><a href="#pho">Photo</a></li>
+                        <li><a href="#com">Company</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="project" class="bg1">
+        <ul class="list">
+          <li class="list__item" date-target="bg1"><a href="#">Retro</a></li>
+          <li class="list__item" date-target="bg2"><a href="#">Tofu</a></li>
+          <li class="list__item" date-target="bg3"><a href="#">Banjo</a></li>
+          <li class="list__item" date-target="bg4"><a href="#">Pitchfork</a></li>
+        </ul>
+    </section>
+      
+    <footer id="footer">
+        Copyright(c) 2020 Sample Inc. All Rights Reserved. Design by <a href="" target="_blank"></a>
+    </footer>
+    <!-- slick jsの読込み -->
+    <script src="../slick/slick.js" type="text/javascript" charset="utf-8"></script>
+    
+    <!-- slickの設定 -->
+    <script type="text/javascript">
+        $(document).on('ready', function() {
+            $('my-slider').slick({
+                dots: true,
+            });
+        });
+    </script>
+   </body>
+</html>    

@@ -1,0 +1,264 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;}
+ul{list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;}
+q:before,q:after{content:'';}
+object,embed{vertical-align:top;}
+legend{display:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+img,abbr,acronym,fieldset{border:0;}
+
+body{
+	font: 14px/1.9;
+	font-weight: 300;
+	-webkit-text-size-adjust:100%;
+	overflow-x: hidden;
+	color: #fff;
+	background-image: url(../img/home.jpg);
+}
+
+a{
+	color: #0066ff;
+	text-decoration: none;
+}
+
+a:active, a:focus,input:active, input:focus{outline:0;}
+
+
+/* ヘッダー
+------------------------------------------------------------*/
+#header{
+	text-align: center;
+}
+
+#header h1{
+	padding-top: 60px;
+	font-family:"Georgia";
+}
+
+#mainnav a{
+	color: #fff;
+}
+
+
+/* フッター
+------------------------------------------------------------*/
+#footer{
+	clear: both;
+	padding: 50px 10px 50px 0;
+	text-align: center;
+	font-size: 12px;
+}
+
+/* RESPONSIVE 設定
+------------------------------------------------------------*/
+
+@media only screen and (min-width: 1200px){
+	.inner{
+		width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 800px){
+	body{
+		font-size:14px;
+	}
+	
+  a#menu{
+		display:none;
+	}	
+
+	.panel{
+		display:block !important;
+	}
+
+	#mainnav li{
+		display: inline-block;
+		padding: 50px 25px;
+		font-size: 15px;
+	}
+
+    /* SEC03 PROJECT
+	-----------------*/	
+  #footer{
+		padding: 30px 10px 70px 0;
+	}
+}
+
+
+@media only screen and (max-width: 640px){
+	.innerS{
+		width: 94%;
+		padding-bottom: 70px;
+	}
+	#map iframe{
+		width: 96% !important;
+		left: 2%;
+	}
+}
+
+@media only screen and (max-width: 799px){
+	#header{
+		position: fixed;
+		width: 100%;
+		z-index: 500;
+	}
+	
+	#headerWrap{
+		position: relative;
+		width: 100%;
+		height: 60px;
+		background: #000;
+	}
+	
+	#header h1{
+		padding-top: 10px;
+	}
+	
+	#header h1 img{
+		margin-top: 3px;
+		max-height: 45px;
+		width: auto !important;
+	}
+
+  a#menu{
+  	display: inline-block;
+  	position: relative;
+  	width: 40px;
+  	height: 30px;
+  	margin: 10px;
+	}
+
+
+	a#menu .close{
+  	background: transparent;
+	}
+
+	a#menu .close:before, a#menu .close:after{
+  	margin-top: 0;
+	}
+
+	a#menu .close:before{
+  	transform: rotate(-45deg);
+  	-webkit-transform: rotate(-45deg);
+	}
+
+	a#menu .close:after{
+  	transform: rotate(-135deg);
+  	-webkit-transform: rotate(-135deg);
+	}
+
+	.panel{
+		width: 100%;
+		display: none;
+		overflow: hidden;
+		position: relative;
+		left: 0;
+		top: 0;
+		z-index: 100;
+		font-family:"Georgia";
+	}
+
+	#mainnav{
+		position: absolute;
+		top: 0;
+		width: 100%;
+		text-align: right;
+		z-index:500;
+	}
+
+	#mainnav ul{
+		border-bottom: 1px solid #ccc;
+		background: #000;
+		text-align: left;
+	}
+
+	#mainnav li a{
+		position: relative;
+		display:block;
+		padding:15px 25px;
+		border-bottom: 1px solid #ccc;
+		color: #fff;
+		font-weight: 400;
+	}
+
+	#mainnav li a:before{
+		display: block;
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 5px;
+		width: 6px;
+		height: 6px;
+		margin: -4px 0 0 0;
+		border-top: solid 2px #fff;
+		border-right: solid 2px #fff;
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+	section{
+		padding-top: 50px;
+	}
+	section h2{
+		margin: 0 auto 20px;
+	}
+	section h2 span {
+		padding: 0 30px;
+	}
+}
+
+#gaiyou{
+    text-align: center;
+    word-wrap: normal;
+	flex-direction: column;
+	padding: 0.5em 1em;
+	}
+
+	#gaiyou h3{
+		margin-bottom: 3px;
+	}
+
+#gaiyou li{
+	list-style: none;
+}
+.gaiyou{
+	margin-top: auto;
+	margin-bottom: 80px;
+	width: 100%;
+    height: 100px;
+    margin-left: auto;
+	margin-right: auto; 
+	line-height: 25px;
+	font-size: 15px;
+}
+
+.sanka{
+	width: 50%;
+    height: 140px;
+	float: left;
+	line-height: 20px;
+	font-size: 16px;
+}
+
+.seisaku {
+	width: 50%;
+	height: 140px;
+	float: left;
+	line-height: 20px;
+	font-size: 16px;
+}
+
+
+.sanka,.seisaku{
+    margin: auto;
+}
+@media only screen and (max-width: 799px){
+	.gaiyou{
+    margin-top: 60px;
+	}
+}

@@ -172,13 +172,13 @@ section h2 span {
 	#header{
 		position: fixed;
 		width: 100%;
-		z-index: 500;
+		z-index: 1;
 	}
 
 	#headerWrap{
 		position: relative;
 		width: 100%;
-		height: 70px;
+		height: 60px;
 		background: #000;
 	}
 
@@ -186,50 +186,12 @@ section h2 span {
 		padding-top: 10px;
 	}
 
-	#header h1 img{
-		margin-top: 3px;
-		max-height: 45px;
-		width: auto !important;
-	}
-
   a#menu{
   	display: inline-block;
   	position: relative;
   	width: 40px;
-  	height: 40px;
+  	height: 30px;
   	margin: 10px;
-	}
-
-	#menuButon{
-  	display: block;
-  	position: absolute;
-  	top: 60%;
-  	left: 50%;
-  	width: 18px;
-  	height: 2px;
-  	margin: -1px 0 0 -7px;
-  	background: #fff;
-  	transition: .2s;
-	}
-
-	#menuButon:before, #menuButon:after{
-  	display: block;
-  	content: "";
-  	position: absolute;
-  	top: 50%;
-  	left: 0;
-  	width: 18px;
-  	height: 2px;
-  	background: #fff;
-  	transition: .3s;
-	}
-
-	#menuButon:before{
-  	margin-top: -7px;
-	}
-
-	#menuButon:after{
-  	margin-top: 5px;
 	}
 
 	a#menu .close{
@@ -355,7 +317,7 @@ section h2 span {
 	margin-top: 10px;
 }
 
-.art{
+.mus{
 	float: left;
 	width: 30%;
 	height: 40%;
@@ -371,7 +333,7 @@ section h2 span {
 	margin-left: 20px;
 }
 
-.mus{
+.pho{
 	float: left;
 	width: 20%;
 	height: 30%;
@@ -379,7 +341,7 @@ section h2 span {
 	margin-left: 20px;
 }
 
-.pho{
+.art{
 	float: left;
 	width: 20%;
 	height: 30%;
@@ -393,48 +355,6 @@ section h2 span {
     color: #998bfa !important;
     border-radius: 30px;
 }
-
-#gaiyou{
-	text-align: center;
-	line-height: 50px;
-	font-size: 20px;
-	flex-direction: column;
-	padding: 0.5em 1em;
-	}
-
-.gaiyou{
-	margin-top: 60px;
-	width: 80%;
-	height: 120px;
-	float: left;
-	margin-left: 120px;
-	color: #FFF;
-    background: #6eb7ff;
-    border-bottom: solid 6px #3e4c58a4;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
-	border-radius: 9px;
-}
-.sanka{
-	width: 40%;
-	height: 120px;
-	float: left;
-	background: #6eb7ff;
-    border-bottom: solid 6px #3e4c58a4;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
-	border-radius: 9px;
-	margin-left: 100px;
-}
-.seisaku{
-	width: 40%;
-	height: 120px;
-	float: left;
-	background: #6eb7ff;
-    border-bottom: solid 6px #3e4c58a4;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
-	border-radius: 9px;
-	margin-left: 100px;
-}
-
 .login{
 	text-align: center;
 }

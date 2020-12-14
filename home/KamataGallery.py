@@ -29,6 +29,31 @@ def index():
 def photo():
     return render_template('photo.html')
 
+@app.route('/fashion')
+#初期画面遷移
+def fashion():
+    return render_template('index.html')
+
+@app.route('/food')
+#初期画面遷移
+def food():
+    return render_template('index.html')
+
+@app.route('/music')
+#初期画面遷移
+def music():
+    return render_template('index.html')
+
+@app.route('/art')
+#初期画面遷移
+def art():
+    return render_template('index.html')
+
+app.route('/company')
+#初期画面遷移
+def company():
+    return render_template('index.html')
+
 @app.route('/enter')
 #enter画面遷移
 def enter():
