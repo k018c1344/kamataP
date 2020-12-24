@@ -14,9 +14,13 @@
     <div class=main>
         <div class=headimg><a href="#"><div class=headlink></div>
             <div class="mask"></div></a>
-        <div class=pro><img src="../static/img/sakura.jpg" alt=""></div>
+        <div class=pro><img src="{{FilePath}}/Vtuber.PNG" alt="" id="image"></div>
         </div>
-        <div class=name>{{name}}</div>
+        {% if name == '' %}
+          <div class=name>ゲスト</div>
+        {% else %}
+          <div class=name>{{name}}</div>
+        {% endif %}
         <a href="#"><?xml version="1.0" standalone="no"?>
         <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
          "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
