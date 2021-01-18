@@ -17,6 +17,18 @@ app = Flask(__name__)
 path='../static/files/'
 app.config['SECRET_KEY']=os.urandom(24)
 
+def filename(u_id):
+    conn=db.connect(**db_param)
+    cur=conn.cursor()
+    cur.execute('SELECT id FROM sample1 WHERE user_ID=%s',(u_id,))
+    id=cur.fetchall()
+    id=int(id[0][0])
+    FilePath='static/files/'+str(id)
+    conn.commit()
+    cur.close()
+    conn.close()
+    return FilePath
+
 #---------------------------- 画面表示 ----------------------------
 
 @app.route('/')
@@ -64,7 +76,7 @@ def enter():
 def send():
     if 'user_ID' in session:
         #ログインした後ログアウトされていない場合
-        return render_template('upload.html',user_ID=session['user_ID'])
+        return render_template('upload.html',user_ID=session['user_ID'],FilePath=session['FilePath'])
     return render_template('index.html')
 
 #----------------------- 各種処理 ---------------------
@@ -74,7 +86,7 @@ def send():
 def login():
     if 'user_ID' in session:
         #ログインした後ログアウトされていない場合
-        return render_template('mypage.html',user_ID=session['user_ID'])
+        return render_template('mypage.html',user_ID=session['user_ID'],FilePath=session['FilePath'])
     return render_template('login.html')
 
 @app.route('/login',methods=['POST'])
@@ -97,16 +109,9 @@ def login_send():
     else:
         if request.form.get('user_ID'):
             session['user_ID']=request.form.get('user_ID')
-            conn=db.connect(**db_param)
-            cur=conn.cursor()
-            cur.execute('SELECT id FROM sample1 WHERE user_ID=%s',(u_id,))
-            id=cur.fetchall()
-            id=int(id[0][0])
-            FilePath='static/files/'+str(id)
-            conn.commit()
-            cur.close()
-            conn.close()
-        return render_template('mypage.html',user_ID=session['user_ID'],FilePath=FilePath)
+            FilePath=filename(u_id)
+            session['FilePath']=FilePath
+        return render_template('mypage.html',user_ID=session['user_ID'],FilePath=session['FilePath'])
 
 @app.route('/new')
 #新規登録画面遷移
@@ -127,18 +132,16 @@ def new_send():
     stmt='SELECT * FROM sample1 WHERE user_ID=%s'
     cur.execute(stmt,(u_id,))
     rows=cur.fetchall()
+    conn.commit()
+    cur.close()
+    conn.close()
     if len(rows)==0:
         cur.execute('INSERT ignore INTO sample1(user_ID,password) VALUES(%s,%s)',(u_id,pw))
-        cur.execute('SELECT id FROM sample1 WHERE user_ID=%s',(u_id,))
-        id=cur.fetchall()
-        id=int(id[0][0])
-        FilePath='static/files/'+str(id)
+        FilePath=filename(u_id)
         if os.path.exists(FilePath)==False:
             os.mkdir(FilePath)
-        conn.commit()
-        cur.close()
-        conn.close()
-        return render_template('mypage.html',user_ID=u_id)
+            session['FilePath']=FilePath
+            return render_template('mypage.html',user_ID=u_id,FilePath=session['FilePath'])
     else:
         return redirect('/new')
 
@@ -146,6 +149,7 @@ def new_send():
 #ログアウト処理
 def logout():
     session.pop('user_ID',None)
+    session.pop('FilePath',None)
     return redirect('/')
 
 
@@ -156,20 +160,11 @@ def upload():
         u_id=str(session['user_ID'])
     else:
         return redirect('/login')
-
     file=request.files['file']
-    conn=db.connect(**db_param)
-    cur=conn.cursor()
-    cur.execute('SELECT id FROM sample1 WHERE user_ID=%s',(u_id,))
-    id=cur.fetchall()
-    id=int(id[0][0])
-    FilePath='static/files/'+str(id)
-    conn.commit()
-    cur.close()
-    conn.close()
+    FilePath=filename(u_id)
     file.save(FilePath+'/'+file.filename)
     result=file.filename+'を送信しました'
-    return render_template('mypage.html',user_ID=u_id,result=result)
+    return render_template('upload.html',user_ID=u_id,result=result)
 
 if __name__=='__main__':
     app.debug = True
