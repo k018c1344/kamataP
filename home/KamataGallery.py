@@ -59,6 +59,14 @@ def company():
 def enter():
     return render_template('enter.html')
 
+@app.route('/send')
+
+def send():
+    if 'user_ID' in session:
+        #ログインした後ログアウトされていない場合
+        return render_template('upload.html',user_ID=session['user_ID'])
+    return render_template('index.html')
+
 #----------------------- 各種処理 ---------------------
 
 @app.route('/login')
@@ -89,7 +97,15 @@ def login_send():
     else:
         if request.form.get('user_ID'):
             session['user_ID']=request.form.get('user_ID')
-            FilePath=path+id
+            conn=db.connect(**db_param)
+            cur=conn.cursor()
+            cur.execute('SELECT id FROM sample1 WHERE user_ID=%s',(u_id,))
+            id=cur.fetchall()
+            id=int(id[0][0])
+            FilePath='static/files/'+str(id)
+            conn.commit()
+            cur.close()
+            conn.close()
         return render_template('mypage.html',user_ID=session['user_ID'],FilePath=FilePath)
 
 @app.route('/new')
@@ -132,6 +148,7 @@ def logout():
     session.pop('user_ID',None)
     return redirect('/')
 
+
 @app.route('/send',methods=['POST'])
 #ファイル送信処理
 def upload():
@@ -141,7 +158,15 @@ def upload():
         return redirect('/login')
 
     file=request.files['file']
-    FilePath=path+id
+    conn=db.connect(**db_param)
+    cur=conn.cursor()
+    cur.execute('SELECT id FROM sample1 WHERE user_ID=%s',(u_id,))
+    id=cur.fetchall()
+    id=int(id[0][0])
+    FilePath='static/files/'+str(id)
+    conn.commit()
+    cur.close()
+    conn.close()
     file.save(FilePath+'/'+file.filename)
     result=file.filename+'を送信しました'
     return render_template('mypage.html',user_ID=u_id,result=result)
