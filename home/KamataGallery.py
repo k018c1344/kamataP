@@ -59,7 +59,7 @@ def music():
 @app.route('/art')
 #初期画面遷移
 def art():
-    return render_template('index.html')
+    return render_template('art2.html')
 
 app.route('/company')
 #初期画面遷移

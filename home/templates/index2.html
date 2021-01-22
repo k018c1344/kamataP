@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Gallery">
+<meta name="viewport" content="width=device-width">
+<title>KAMATAGallery</title>
+<link rel="stylesheet" media="all" href="./css/style.css"/>
+<link rel="stylesheet" media="all" href="./css/art.css"/>
+<link rel="stylesheet" type="text/css" href="./slick/slick.css">
+<link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script src="./js/script.js"></script>
+<script src="./js/art.js"></script>
+</head>
+
+<body id="top">
+<header id="header">
+	<div id="headerWrap">
+		<h1>KAMATA<br>Gallery</h1>
+		<nav id="mainnav">
+			<p id="menuWrap"><a id="menu"></a></p>
+			<div class="panel">
+				<ul>
+					<li><a href="#top">TOP</a></li>
+					<li><a href="./html/enter.html">Enter</a></li>
+                    <li><a href="#fas">Fashion</a></li>
+                    <li><a href="#mus">Music</a></li>
+                    <li><a href="#foo">Food</a></li>
+                    <li><a href="#pho">Photo</a></li>
+                    <li><a href="../html/art.html">Art</a></li>
+                    <li><a href="#com">Company</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</header>
+
+
+<!-- MAINCONTENTS -->
+	<div class='container'>
+		<ul class="slider">
+			<div>
+			<li><a href=""><img src="https://unsplash.it/1960/1080" alt=""></a></li>
+			</div>
+			<div>
+			<li><a href=""><img src="https://unsplash.it/1959/1080" alt=""></a></li>
+			</div>
+			<div>
+			<li><a href=""><img src="https://unsplash.it/1958/1080" alt=""></a></li>
+			</div>
+		</ul>
+	</div>
+
+<section id="room">
+	<ul>
+		<div class="ent"><li><a href="./html/enter.html">Enter</a></li></div>
+		<div class="fas"><li><a href="">Fashion</a></li></div>
+		<div class="mus"><li><a href="./html/art.html">Music</a></li></div>
+		<div class="foo"><li><a href="">Food</a></li></div>
+		<div class="pho"><li><a href="">Photo</a></li></div>
+		<div class="art"><li><a href="">Art</a></li></div>
+	</ul>
+</section>
+<!-- MAINCONTENTS -->
+
+<!-- COMPANY -->
+<section id="com">
+	<header>
+		<h2><span>Company</span></h2>
+	</header>
+	<div class="innerS">
+		<ul class="col2">
+			<li>
+				<p>〒144-8655<br>東京都大田区西蒲田５丁目２３?２２</p>
+				<p>TEL 0120-123-351</p>
+				<p>Mail kamata@example.com</p>
+				<p id="sns">
+					<a href="#" target="_blank"><img src="./img/Facebook.png" width="20" height="20" alt="FB"></a>
+					<a href="#" target="_blank"><img src="./img/Twitter.png" width="20" height="20" alt="twitter"></a>
+					<a href="#" target="_blank"><img src="./img/Instagram.jpg" width="20" height="20" alt="Instagram"></a>
+					<a href="#" target="_blank"><img src="./img/YouTube.png" width="20" height="20" alt="You Tube"></a>
+					<a href="#" target="_blank"><img src="./img/Line.png" width="20" height="20" alt="Line"></a>
+				</p>
+			</li>
+			<li>
+				<div id="map">
+					<!-- GOOGLE MAP -->
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207715.65275087976!2d139.57528091640629!3d35.56463970000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60186043463ac57b%3A0x39d23c6afc7e68a8!2z5pel5pys5bel5a2m6Zmi5bCC6ZaA5a2m5qCh!5e0!3m2!1sja!2sjp!4v1605430861375!5m2!1sja!2sjp" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+					<!-- // GOOGLE MAP -->
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>
+<!-- // COMPANY -->
+
+<footer id="footer">
+	Copyright(c) 2020 Sample Inc. All Rights Reserved. Design by <a href="" target="_blank"></a>
+</footer>
+<!-- slick jsの読込み -->
+<script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- slickの設定 -->
+<script type="text/javascript">
+	$(document).on('ready', function() {
+		$('my-slider').slick({
+			dots: true,
+		});
+	});
+</script>
+</body>
+</html>
