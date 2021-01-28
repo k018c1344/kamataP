@@ -1,0 +1,28 @@
+header {
+    width: auto;
+    height:70px;
+    text-align: center;
+    color: white;
+}
+
+header.header-logo {
+    margin-top: 10px;
+}
+
+body {
+    background-image:url(../img/backgroundimg.JPG);
+    text-align: center;
+    color: white;
+}
+
+.contents {
+    margin-top: 150px;
+}
+
+.registType select {
+    margin-top: 10px;
+}
+
+.dataSend {
+    margin-top: 10px;
+}

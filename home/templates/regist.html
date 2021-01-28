@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Gallery">
+    <meta name="viewport" content="width=device-width">
+    <title>KAMATAGallery</title>
+    <link rel="stylesheet" media="all" href="../static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="../static/slick/slick-theme.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="../static/js/script.js"></script>
+    <link href = "../static/css/regist.css" rel="stylesheet">
+
+</head>
+<body id="top">
+<header id="header">
+	<div id="headerWrap">
+		<h1>KAMATA<br>Gallery</h1>
+		<nav id="mainnav">
+			<p id="menuWrap"><a id="menu"><span id="menuButton"></span></a></p>
+			<div class="panel">
+				<ul>
+					<li><a href="/">TOP</a></li>
+					<li><a href="/fashion">Fashion</a></li>
+					<li><a href="/art">Art</a></li>
+          <li><a href="/food">Food</a></li>
+					<li><a href="/music">Music</a></li>
+					<li><a href="/photo">Photo</a></li>
+					<li><a href="/company">Company</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</header>
+</body>
+<body>
+    <header>
+        <div class = "header">
+            <div class = "header-logo"><a href="google.com"><h2>Kamata<br>Gallary</h2></a></div>
+        </div>
+    </header>
+
+    <div class = "contents">
+        <div class= "registTittle">
+            <h1>Regist Products</h1>
+        </div>
+
+        <div class = "registImg">
+            <label for="registImg">ProductImg</label>
+            <input type="file" name="example" id = "registImg" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        </div>
+
+        <div class = "registExplain">
+            <p>*画像を添付し、タイトルの入力、ジャンルを選択してください。<br>
+                その後「SUBMIT」をクリックして下さい。</p>
+        </div>
+
+        <div class= "registName">
+             <label for="productName">ProductName</label>
+            <input type="text" id="productName" name="productName">
+        </div>
+
+        <div class = "registType">
+            <label for="registType">ProductType</label>
+            <select name="registType" id="registType">
+                <option value="1">Art</option>
+                <option value="2">Fashion</option>
+                <option value="3">Photo</option>
+                <option value="4">Music</option>
+                <option value="5">Food</option>
+            </select>
+        </div>
+
+        <div class = "dataSend">
+            <input type="submit" value="SUBMIT" id="dataSend">
+        </div>
+    </div>
+</body>
+</html>

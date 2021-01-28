@@ -1,0 +1,32 @@
+DB構成
+
+その１
+アカウント関連 account
+id        int	　　　名前替わり　オートインクリメント not null
+name	  varchar     作者名	not null
+pw	  varchar     パスワード	not null
+f_path    varchar     投稿先フォルダパス
+user_type int not null ユーザー権限とかで使う
+
+その２
+投稿作品関連   creation
+id	　int         作者識別用id not null
+c_id	  int         作品用id  一応
+name	  varchar     作者名
+title     varchar     作品名
+f_path    varchar     作品の投稿先フォルダパス
+type      varchar     作品の分類(photo,foodなど)
+date      varchar     作品の投稿日付　artページに表示するのは
+                      　　　　　　　　投稿5日までとかにする使い方。
+                                      個人ページには期間関係なく掲載する。
+
+　　　　　　　　　　　　　　　　　　　
+その３
+お気に入り関連 favorite
+id	  int    not null   お気に入りしたユーザーの識別
+c_id      int         作者識別用id not null
+title     varchar     お気に入りした作品名
+type      varchar     作品タイプ別表示に使うかも？
+
+
+※同名の変数は番号の早いTABLEから内容を引っ張ってくる

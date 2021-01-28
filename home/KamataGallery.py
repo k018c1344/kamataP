@@ -44,7 +44,7 @@ def photo():
 @app.route('/fashion')
 #初期画面遷移
 def fashion():
-    return render_template('index.html')
+    return render_template('fashion.html')
 
 @app.route('/food')
 #初期画面遷移
